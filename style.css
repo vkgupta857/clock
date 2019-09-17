@@ -1,0 +1,53 @@
+/*styling.css*/
+body {
+    background-color: #000;
+    margin-top: 20px;
+    color: #fff;
+}
+
+/*Lap*/
+#lap{
+    font-size: 3vw;
+}
+
+/*Time*/
+#time{
+    text-align: center;
+    font-size: 6vw;
+}
+
+.control{
+    background-color: #d7A04e;
+    border-radius: 10%;
+    text-align: center;
+    padding: 10px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.control:active{
+    background-color: #fff;
+    color: #d7A04e;
+}
+
+/*laps*/
+#laps{
+    max-height: 270px;
+    overflow-y: scroll;
+}
+
+.lap{
+    height: 50px;
+    border-bottom: 1px solid white;
+    margin: 15px;
+}
+
+.laptimetitle{
+    font-size: 1.5em;
+    float: left;
+}
+
+.laptime{
+    font-size: 2em;
+    float: right;
+}

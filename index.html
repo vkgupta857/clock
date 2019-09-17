@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Clock</title>
+    <link rel="icon" href="images/favicon.ico" />
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div class="container text-center">
+        <h1>Clock</h1>
+        <div class="card text-center bg-dark">
+            <div class="card-header">
+                <ul class="nav nav-pills nav-justified" role="pillist">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#timer" data-toggle="pill"><b>Timer</b></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#stopwatch" data-toggle="pill"><b>Stopwatch</b></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="card-body" id="content">
+                
+                <!--Contents of tabs-->
+                <div class="tab-content">
+
+                    <!--Timer tab-->
+                    <div class="tab-pane fade show" id="timer">
+                        <div class="row">
+                            <h1><b>Timer</b></h1>
+                            <input class="form-control" type="time" />
+                        </div>
+                    </div>
+
+                    <!--Stopwatch tab-->
+                    <div class="tab-pane show fade active" id="stopwatch">
+                        <!--Lap Time-->
+                        <div class="row justify-content-end">
+                            <div id="lap">
+                                <span id="lapminute">00</span>:<span id="lapsecond">00</span>:<span
+                                    id="lapcentisecond">00</span>
+                            </div>
+                        </div>
+                        <!--Time-->
+                        <div class="row justify-content-center">                            
+                            <div id="time">
+                                <span id="timeminute">00</span>:<span id="timesecond">00</span>:<span
+                                    id="timecentisecond">00</span>
+                            </div>
+                        </div>
+                        <div class="row justify-content-center">
+                            <!--Controls-->
+                            <div id="controlsContainer" class="row">
+                                <div class="col-xs-2 col-xs-offset-4">
+                                    <div id="startButton" class="control">
+                                        Start
+                                    </div>
+                                    <div id="stopButton" class="control">
+                                        Stop
+                                    </div>
+                                    <div id="resumeButton" class="control">
+                                        Resume
+                                    </div>                                    
+                                </div>
+                                <div class="col-xs-2">
+                                    <div id="lapButton" class="control">
+                                        Lap
+                                    </div>
+                                    <div id="resetButton" class="control">
+                                        Reset
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <!--Laps-->
+                            <div id="laps"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <button class="btn btn-primary" onclick="openFullscreen()">Full Screen</button>
+                    <script>
+                            /* Get the element you want displayed in fullscreen mode (a video in this example): */
+                            var elem = document.getElementById("content");
+                            
+                            /* When the openFullscreen() function is executed, open the video in fullscreen.
+                            Note that we must include prefixes for different browsers, as they don't support the requestFullscreen method yet */
+                            function openFullscreen() {
+                                if (elem.requestFullscreen) {
+                                elem.requestFullscreen();
+                                } else if (elem.mozRequestFullScreen) { /* Firefox */
+                                elem.mozRequestFullScreen();
+                                } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+                                elem.webkitRequestFullscreen();
+                                } else if (elem.msRequestFullscreen) { /* IE/Edge */
+                                elem.msRequestFullscreen();
+                                }
+                            }
+                            </script>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="stopwatch.js"></script>
+</body>
+
+</html>
