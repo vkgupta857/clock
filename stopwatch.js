@@ -116,22 +116,13 @@ $(function(){
     //addLap function: print lap details inside the lap box
     function addLap(){
         lapNumber++;
-           var myLapDetails =
-               '<div class="lap">'+
-                    '<div class="laptimetitle">'+
-                        'Lap'+ lapNumber +
-                    '</div>'+
-                    '<div class="laptime">'+
-                        '<span>'+ format(lapMinutes) +'</span>'+
-                        ':<span>'+ format(lapSeconds) +'</span>'+
-                        ':<span>'+ format(lapCentiseconds) +'</span>'+
-                    '</div>'+
-                    '<div class="laptime">'+
-                        '<span>'+ format(timeMinutes) +'</span>'+
-                        ':<span>'+ format(timeSeconds) +'</span>'+
-                        ':<span>'+ format(timeCentiseconds) +'</span>'+
-                    '</div>'+
-               '</div>';
-        $(myLapDetails).prependTo("#laps");
+        var table = document.getElementById("lapTable");
+        var row = table.insertRow(0);
+        var cell1 = row.insertCell(0);
+        var cell2 = row.insertCell(1);
+        var cell3 = row.insertCell(2);
+        cell1.innerHTML = "# " + lapNumber;
+        cell2.innerHTML = format(lapMinutes) + ':' + format(lapSeconds) + ':' + format(lapCentiseconds);
+        cell3.innerHTML = format(timeMinutes) + ':' + format(timeSeconds) + ':' + format(timeCentiseconds);
     }
 });
