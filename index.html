@@ -9,7 +9,7 @@
     <link href="style.css" rel="stylesheet" />
   </head>
 
-  <body>
+  <body onload="initialSetup()">
     <div id="header">
       <h1 id="title">Clock</h1>
       <p>
@@ -22,17 +22,19 @@
         <h4 class="card-title">Stopwatch</h4>
         <hr />
         <h1 id="stopwatchTimerDisplay">00:00:00</h1>
-        <button id="startButton" class="btn" onclick="startStopwatch()">
+        <button id="startStopwatchBtn" class="btn" onclick="startStopwatch()">
           Start
         </button>
-        <button id="stopButton" class="btn" onclick="stopStopwatch()">
+        <button id="stopStopwatchBtn" class="btn" onclick="stopStopwatch()">
           Stop
         </button>
-        <button id="resumeButton" class="btn">
+        <button id="resumeStopwatchBtn" class="btn" onclick="resumeStopwatch()">
           Resume
         </button>
-        <button id="lapButton" class="btn">Lap</button>
-        <button id="resetButton" class="btn" onclick="resetStopwatch()">
+        <button id="lapStopwatchBtn" class="btn" onclick="lap()">
+          Lap
+        </button>
+        <button id="resetStopwatchBtn" class="btn" onclick="resetStopwatch()">
           Reset
         </button>
         <div id="laps" class="">
@@ -44,15 +46,15 @@
       <div class="card">
         <h4 class="card-title">Timer</h4>
         <hr />
-        <h1 id="timerTime">
-          <span id="timer-minute">00</span>:<span id="timer-second">00</span
-          >:<span id="timer-centisecond">00</span>
-        </h1>
-        <button id="startTimer" class="btn">Start</button>
-        <button id="stopTimer" class="btn">Stop</button>
-        <button id="resetTimer" class="btn">Reset</button>
-        <button id="fullscreenTimer" class="btn">
-          Fullscreen
+        <h1 id="timerTime">00:00:00</h1>
+        <button id="startTimerBtn" class="btn" onclick="startTimer()">
+          Start
+        </button>
+        <button id="stopTimerBtn" class="btn" onclick="stopTimer()">
+          Stop
+        </button>
+        <button id="resetTimerBtn" class="btn" onclick="resetTimer()">
+          Reset
         </button>
       </div>
     </div>
