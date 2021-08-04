@@ -1,115 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Clock</title>
     <link rel="icon" href="images/favicon.ico" />
+    <link href="style.css" rel="stylesheet" />
+  </head>
 
-    <link href="style.css" rel="stylesheet">
-    <script>
-        var elem = document.getElementById('');
-        function openFullscreen() {
-            var elem = document.getElementById("timer");
-            if (elem.requestFullscreen) {
-                elem.requestFullscreen();
-            } else if (elem.mozRequestFullScreen) { /* Firefox */
-                elem.mozRequestFullScreen();
-            } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
-                elem.webkitRequestFullscreen();
-            } else if (elem.msRequestFullscreen) { /* IE/Edge */
-                elem.msRequestFullscreen();
-            }
-        }
-    </script>
-    <style>
-        body {
-            background-color: #000;
-            margin-top: 20px;
-            color: #fff;
-        }
-
-        #laps {
-            max-height: 250px;
-            overflow: auto;
-        }
-    </style>
-
-</head>
-
-<body>
-
-    <div class="container text-center">
-        <h2>Clock</h2>
-        <div class="card text-center bg-dark">
-            <div class="card-header">
-                <ul class="nav nav-pills nav-justified" role="pillist">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#timer" data-toggle="pill"><b>Timer</b></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#stopwatch" data-toggle="pill"><b>Stopwatch</b></a>
-                    </li>
-                </ul>
-            </div>
-            <div class="card-body justify-content-center">
-
-                <!--Contents of tabs-->
-                <div class="tab-content">
-
-                    <!--Timer tab-->
-                    <div class="tab-pane fade show active" id="timer">
-                        <div class="card bg-dark justify-content-center">
-                            <div class="card-body">
-                                <h1 id="timerTime">
-                                    <span id="timer-minute">00</span>:<span id="timer-second">00</span>:<span
-                                        id="timer-centisecond">00</span>
-                                </h1>
-                                <div class="progress" style="height: 5px;">
-                                    <div class="progress-bar" role="progressbar" style="width: 100%;" aria-valuenow="25"
-                                        aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                                <hr />
-                                <button id="startTimer" class="btn btn-sm btn-light">Start</button>
-                                <button id="stopTimer" class="btn btn-sm btn-light">Stop</button>
-                                <button id="resetTimer" class="btn btn-sm btn-light">Reset</button>
-                                <button id="fullscreenTimer" class="btn btn-sm btn-light">Fullscreen</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!--Stopwatch tab-->
-                    <div class="tab-pane show fade" id="stopwatch">
-                        <div class="card bg-dark justify-content-center">
-                            <div class="card-body">
-                                <h1>
-                                    <span id="timeminute">00</span>:<span id="timesecond">00</span>:<span
-                                        id="timecentisecond">00</span>
-                                </h1>
-                                <hr />
-                                <button id="startButton" class="control btn btn-sm btn-light">Start</button>
-                                <button id="stopButton" class="control btn btn-sm btn-light">Stop</button>
-                                <button id="resumeButton" class="control btn btn-sm btn-light">Resume</button>
-                                <button id="lapButton" class="control btn btn-sm btn-light">Lap</button>
-                                <button id="resetButton" class="control btn btn-sm btn-light">Reset</button>
-                                <br /><br />
-                                <div id="laps" class="offset-md-3 col-md-6 justify-content-center">
-                                    <table id="lapTable" class="table table-sm">
-                                        <tbody>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+  <body>
+    <div id="header">
+      <h1 id="title">Clock</h1>
+      <p>
+        Enable light theme
+        <input type="checkbox" onchange="toggleLightTheme(this)" />
+      </p>
     </div>
-
+    <div id="card-container">
+      <div class="card">
+        <h4 class="card-title">Stopwatch</h4>
+        <hr />
+        <h1 id="stopwatchTimerDisplay">00:00:00</h1>
+        <button id="startButton" class="btn" onclick="startStopwatch()">
+          Start
+        </button>
+        <button id="stopButton" class="btn" onclick="stopStopwatch()">
+          Stop
+        </button>
+        <button id="resumeButton" class="btn">
+          Resume
+        </button>
+        <button id="lapButton" class="btn">Lap</button>
+        <button id="resetButton" class="btn" onclick="resetStopwatch()">
+          Reset
+        </button>
+        <div id="laps" class="">
+          <table id="lapTable" class="">
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+      <div class="card">
+        <h4 class="card-title">Timer</h4>
+        <hr />
+        <h1 id="timerTime">
+          <span id="timer-minute">00</span>:<span id="timer-second">00</span
+          >:<span id="timer-centisecond">00</span>
+        </h1>
+        <button id="startTimer" class="btn">Start</button>
+        <button id="stopTimer" class="btn">Stop</button>
+        <button id="resetTimer" class="btn">Reset</button>
+        <button id="fullscreenTimer" class="btn">
+          Fullscreen
+        </button>
+      </div>
+    </div>
     <script src="stopwatch.js"></script>
-</body>
-
+  </body>
 </html>
